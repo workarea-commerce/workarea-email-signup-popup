@@ -1,0 +1,20 @@
+{
+    "extends": "eslint:recommended",
+    "globals": {
+      "window": true,
+      "document": true,
+      "WORKAREA": true,
+      "$": true,
+      "jQuery": true,
+      "_": true,
+      "feature": true,
+      "JST": true,
+      "Turbolinks": true,
+      "I18n": true,
+      "Chart": true,
+      "Dropzone": true,
+      "strftime": true,
+      "Waypoint": true,
+      "wysihtml": true
+    }
+}
