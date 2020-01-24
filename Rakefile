@@ -49,3 +49,14 @@ task :release do
   system "gem push workarea-email_signup_popup-#{Workarea::EmailSignupPopup::VERSION}.gem --host #{host}"
   system "rm workarea-email_signup_popup-#{Workarea::EmailSignupPopup::VERSION}.gem"
 end
+
+desc "Run the JavaScript tests"
+ENV["TEASPOON_RAILS_ENV"] = File.expand_path("../test/dummy/config/environment", __FILE__)
+task teaspoon: "app:teaspoon"
+
+desc "Start a server at http://localhost:3000/teaspoon for JavaScript tests"
+task :teaspoon_server do
+  Dir.chdir("test/dummy")
+  teaspoon_env = File.expand_path("../test/teaspoon_env.rb", __FILE__)
+  system "RAILS_ENV=test TEASPOON_ENV=#{teaspoon_env} rails s"
+end
